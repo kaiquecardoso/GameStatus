@@ -1,6 +1,10 @@
-import {Slot, router} from 'expo-router';
-import { useEffect } from 'react';
-
+import { Slot, router } from "expo-router";
+import { useEffect } from "react";
+if (__DEV__) {
+  import("@/config/ReactotronConfig.js").then(() =>
+    console.log("Reactotron Configured")
+  );
+}
 
 function InitialLayout() {
   let signed = false;
@@ -17,7 +21,5 @@ function InitialLayout() {
 }
 
 export default function Layout() {
-  return (
-    <InitialLayout />
-  )
+  return <InitialLayout />;
 }
