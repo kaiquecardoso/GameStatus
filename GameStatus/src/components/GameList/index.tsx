@@ -1,6 +1,7 @@
 import React from "react";
-import { Image, View, Dimensions } from "react-native";
+import { Image, View, Dimensions, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
+import { router } from "expo-router";
 
 interface DataProps {
   id: string;
@@ -23,17 +24,21 @@ interface Props {
 
 const GameList: React.FC<Props> = ({ data }) => {
   const { width } = Dimensions.get("screen");
+  const handlePress = (game: DataProps) => {
+    router.navigate(`detail?game=${encodeURIComponent(JSON.stringify(game))}`);
+  };
   return (
     <View style={styles.container}>
       {data.map((game: DataProps) => (
-        <Image
-          key={game?.id}
-          style={[
-            styles.image,
-            { width: width / 2 - 24, height: width / 2 - 24 * -1.9 },
-          ]}
-          source={{ uri: game?.imageUrl }}
-        />
+        <TouchableOpacity key={game?.id} onPress={() => handlePress(game)}>
+          <Image
+            style={[
+              styles.image,
+              { width: width / 2 - 24, height: width / 2 - 24 * -1.9 },
+            ]}
+            source={{ uri: game?.imageUrl }}
+          />
+        </TouchableOpacity>
       ))}
     </View>
   );

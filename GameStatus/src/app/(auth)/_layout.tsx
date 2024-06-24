@@ -13,6 +13,7 @@ export default function Layout() {
           elevation: 0,
           shadowOpacity: 0,
         },
+        headerShown: false,
         headerStyle: {
           backgroundColor: "#121214",
           borderBottomWidth: 0,
@@ -23,9 +24,9 @@ export default function Layout() {
       }}
     >
       <Tabs.Screen
-        name="index"
+        name="(home)"
         options={{
-          title: "Home",
+          title: "Início",
           tabBarIcon: ({ color }) => (
             <FontAwesome size={28} name="home" color={color} />
           ),

@@ -102,7 +102,7 @@ export default function SignIn() {
           <Link text="Esqueci minha senha" />
           <Space y={8} />
           <SignInButton
-            onPress={() => router.replace("(auth)")}
+            onPress={() => router.replace("(auth)/(home)/home")}
             text="Acessar"
           />
           <Space y={8} />
