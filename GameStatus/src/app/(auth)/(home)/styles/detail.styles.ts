@@ -49,4 +49,9 @@ export const styles = StyleSheet.create({
     height: 200,
     width: 200,
   },
+  cover: {
+    marginTop: -160,
+    alignItems: "center",
+    justifyContent: "center",
+  },
 });

@@ -1,7 +1,8 @@
 import { StyleSheet, Text, View, Image } from "react-native";
-import { styles } from "./styles/profile.styles";
+import { styles } from "./styles/detail.styles";
 import { useLocalSearchParams } from "expo-router";
 import { BlurView } from "expo-blur";
+import Chart from "@/components/Chart";
 
 interface GameProps {
   id: string;
@@ -38,16 +39,27 @@ export default function Detail() {
 
   return (
     <View style={styles.container}>
-      <View style={{ width: 300, height: 400 }}>
+      <View style={{ width: 300, height: 250 }}>
         <Image
           source={{ uri: encodedImageUrl }}
-          style={{ width: 500, height: 400, backgroundColor: "red" }}
+          style={{ width: 500, height: 250, backgroundColor: "red" }}
         />
         <BlurView
           intensity={90}
           style={{ width: 500, height: 400, marginTop: -400 }}
         />
       </View>
+      <View style={styles.cover}>
+        <Image
+          source={{ uri: encodedImageUrl }}
+          style={{
+            width: 180,
+            height: 250,
+            borderRadius: 16,
+          }}
+        />
+      </View>
+      <Chart game={game} />
     </View>
   );
 }
